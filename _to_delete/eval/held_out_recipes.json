@@ -1,0 +1,56 @@
+[
+  {
+    "id": "h1",
+    "name": "3-Egg Scramble w/ Light Oil",
+    "recipeText": "3-Egg Scramble w/ Light Oil (serves 1)\n3 large eggs, cooked\n1/2 tbsp olive oil, for the pan",
+    "servings": 1,
+    "truth": { "cal": 276, "p": 18, "c": 0, "f": 19 },
+    "note": "Reuses egg + olive oil from the DB, but different quantities/phrasing than the original 8 recipes",
+    "expectFullyGrounded": true
+  },
+  {
+    "id": "h2",
+    "name": "Plain Grilled Chicken Breast",
+    "recipeText": "Plain Grilled Chicken Breast (serves 1)\n200g grilled skinless chicken breast, no oil or seasoning",
+    "servings": 1,
+    "truth": { "cal": 330, "p": 62, "c": 0, "f": 7.2 },
+    "note": "Single ingredient, 'grilled' phrasing instead of 'cooked'",
+    "expectFullyGrounded": true
+  },
+  {
+    "id": "h3",
+    "name": "Double Isopure Oat Milk Shake",
+    "recipeText": "Double Isopure Oat Milk Shake (serves 1)\n2 scoops Isopure Zero Carb protein powder\n1.5 cups Califia Farms Oat Barista Blend",
+    "servings": 1,
+    "truth": { "cal": 395, "p": 53, "c": 19.5, "f": 10.5 },
+    "note": "Reuses Isopure + Califia from the DB at different quantities than original eval (2 scoops, 1.5 cups vs 1 scoop, 1 cup)",
+    "expectFullyGrounded": true
+  },
+  {
+    "id": "h4",
+    "name": "Banana w/ Extra Almond Butter",
+    "recipeText": "Banana w/ Extra Almond Butter (serves 1)\n1 medium banana\n2 tbsp almond butter",
+    "servings": 1,
+    "truth": { "cal": 301, "p": 8.1, "c": 33, "f": 18.4 },
+    "note": "Double the almond butter quantity vs. the original eval recipe",
+    "expectFullyGrounded": true
+  },
+  {
+    "id": "h5",
+    "name": "Oats, Banana & Honey Bowl",
+    "recipeText": "Oats, Banana & Honey Bowl (serves 1)\n1 cup dry rolled oats, cooked\n1 medium banana, sliced\n1 tbsp honey, drizzled on top",
+    "servings": 1,
+    "truth": { "cal": 469, "p": 11.3, "c": 98.3, "f": 6.4 },
+    "note": "Includes honey (1 tbsp honey = ~64 cal, 0g protein, 17.3g carb, 0g fat — standard USDA value), which is NOT in the ingredient database. This recipe should trigger the fallback path (partial DB match → fall back to whole-recipe LLM estimate) rather than a fully grounded computation.",
+    "expectFullyGrounded": false
+  },
+  {
+    "id": "h6",
+    "name": "Chicken, Egg & Oil Bowl (150g)",
+    "recipeText": "Chicken, Egg & Oil Bowl (serves 1)\n150g cooked skinless chicken breast\n2 large eggs, scrambled\n1 tbsp olive oil",
+    "servings": 1,
+    "truth": { "cal": 511.5, "p": 58.5, "c": 0, "f": 27.4 },
+    "note": "Same ingredient combo as the original 'Chicken & Egg Power Bowl' but at 150g chicken instead of 200g",
+    "expectFullyGrounded": true
+  }
+]

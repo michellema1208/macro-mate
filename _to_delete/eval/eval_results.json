@@ -1,0 +1,208 @@
+{
+  "generatedAt": "2026-07-22T16:48:43.001Z",
+  "recipeCount": 8,
+  "successCount": 8,
+  "overallAvgErrorPct": 29.020049251373926,
+  "results": [
+    {
+      "id": 1,
+      "name": "2-Egg + Chicken Scramble",
+      "truth": {
+        "cal": 349,
+        "p": 43,
+        "c": 0,
+        "f": 16.3
+      },
+      "estimate": {
+        "cal": 312,
+        "p": 42,
+        "c": 1,
+        "f": 15
+      },
+      "errs": {
+        "cal": 10.601719197707736,
+        "p": 2.3255813953488373,
+        "c": 100,
+        "f": 7.97546012269939
+      },
+      "avgErrPct": 30.22569017893899,
+      "modelConfidence": "high",
+      "confidenceNote": "Based on standard USDA values for whole-food ingredients with precise quantities (2 large eggs, 100g cooked chicken breast, 1 tsp olive oil)."
+    },
+    {
+      "id": 2,
+      "name": "Isopure Shake w/ Oat Milk",
+      "truth": {
+        "cal": 230,
+        "p": 27,
+        "c": 13,
+        "f": 7
+      },
+      "estimate": {
+        "cal": 150,
+        "p": 25,
+        "c": 1,
+        "f": 2.5
+      },
+      "errs": {
+        "cal": 34.78260869565217,
+        "p": 7.4074074074074066,
+        "c": 92.3076923076923,
+        "f": 64.28571428571429
+      },
+      "avgErrPct": 49.695855674116544,
+      "modelConfidence": "medium",
+      "confidenceNote": "Both ingredients are branded products with published nutrition facts used verbatim: Isopure Zero Carb (1 scoop) and Califia Farms Oat Barista Blend (1 cup). (Downgraded automatically — blended drink, harder to verify precisely.)"
+    },
+    {
+      "id": 3,
+      "name": "Oikos + Isopure Yogurt Bowl",
+      "truth": {
+        "cal": 200,
+        "p": 40,
+        "c": 10,
+        "f": 0
+      },
+      "estimate": {
+        "cal": 180,
+        "p": 40,
+        "c": 7,
+        "f": 0
+      },
+      "errs": {
+        "cal": 10,
+        "p": 0,
+        "c": 30,
+        "f": 0
+      },
+      "avgErrPct": 10,
+      "modelConfidence": "high",
+      "confidenceNote": "Both products are branded items with published nutrition facts used verbatim; quantities are precise and unambiguous."
+    },
+    {
+      "id": 4,
+      "name": "Grilled Chicken & Oats Bowl",
+      "truth": {
+        "cal": 517.5,
+        "p": 51.5,
+        "c": 27,
+        "f": 22.4
+      },
+      "estimate": {
+        "cal": 580,
+        "p": 52,
+        "c": 48,
+        "f": 14
+      },
+      "errs": {
+        "cal": 12.077294685990339,
+        "p": 0.9708737864077669,
+        "c": 77.77777777777779,
+        "f": 37.49999999999999
+      },
+      "avgErrPct": 32.08148656254397,
+      "modelConfidence": "high",
+      "confidenceNote": "All ingredients are well-documented whole foods with precise quantities; cooked chicken breast and dry oats have unambiguous USDA values."
+    },
+    {
+      "id": 5,
+      "name": "Oats & Almond Butter Bowl",
+      "truth": {
+        "cal": 353,
+        "p": 9.7,
+        "c": 57,
+        "f": 12.4
+      },
+      "estimate": {
+        "cal": 470,
+        "p": 16,
+        "c": 54,
+        "f": 18
+      },
+      "errs": {
+        "cal": 33.14447592067989,
+        "p": 64.94845360824743,
+        "c": 5.263157894736842,
+        "f": 45.16129032258064
+      },
+      "avgErrPct": 37.1293444365612,
+      "modelConfidence": "high",
+      "confidenceNote": "Based on standard USDA values for whole-food ingredients with precise quantities (dry oats, tbsp almond butter, medium banana)."
+    },
+    {
+      "id": 6,
+      "name": "Banana Almond Butter Snack",
+      "truth": {
+        "cal": 203,
+        "p": 4.7,
+        "c": 30,
+        "f": 9.4
+      },
+      "estimate": {
+        "cal": 290,
+        "p": 9,
+        "c": 29,
+        "f": 14
+      },
+      "errs": {
+        "cal": 42.857142857142854,
+        "p": 91.48936170212765,
+        "c": 3.3333333333333335,
+        "f": 48.93617021276595
+      },
+      "avgErrPct": 46.65400202634245,
+      "modelConfidence": "high",
+      "confidenceNote": "Both ingredients are unambiguous whole-food items with standard USDA values and precise quantities."
+    },
+    {
+      "id": 7,
+      "name": "Protein Banana Shake",
+      "truth": {
+        "cal": 335,
+        "p": 28.3,
+        "c": 40,
+        "f": 7.4
+      },
+      "estimate": {
+        "cal": 280,
+        "p": 26,
+        "c": 27,
+        "f": 5
+      },
+      "errs": {
+        "cal": 16.417910447761194,
+        "p": 8.127208480565374,
+        "c": 32.5,
+        "f": 32.432432432432435
+      },
+      "avgErrPct": 22.369387840189752,
+      "modelConfidence": "medium",
+      "confidenceNote": "All ingredients are documented branded products or standard whole foods with precise quantities; Isopure Zero Carb and Califia Farms nutrition facts are manufacturer-verified. (Downgraded automatically — blended drink, harder to verify precisely.)"
+    },
+    {
+      "id": 8,
+      "name": "Chicken & Egg Power Bowl",
+      "truth": {
+        "cal": 594,
+        "p": 74,
+        "c": 0,
+        "f": 29.2
+      },
+      "estimate": {
+        "cal": 580,
+        "p": 76,
+        "c": 0,
+        "f": 26
+      },
+      "errs": {
+        "cal": 2.356902356902357,
+        "p": 2.7027027027027026,
+        "c": 0,
+        "f": 10.958904109589039
+      },
+      "avgErrPct": 4.004627292298524,
+      "modelConfidence": "high",
+      "confidenceNote": "All ingredients are single, well-documented whole foods with precise quantities; no combined liquids or ambiguous prep details."
+    }
+  ]
+}
