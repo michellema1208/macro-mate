@@ -1070,6 +1070,15 @@
     }
     #view-home .home-card:hover .home-card-arrow { transform:translateX(4px); }
     @media (max-width:560px) { #view-home .home-cards { grid-template-columns:1fr; } }
+    #view-home .targets-wrap { position:relative; width:100%; }
+    #view-home .targets-edit-btn {
+      position:absolute; top:50%; right:14px; transform:translateY(-50%);
+      background:none; border:none; cursor:pointer;
+      font-size:15px; color:var(--zen-ink-3);
+      opacity:0; transition:opacity .25s; padding:4px;
+    }
+    #view-home .targets-wrap:hover .targets-edit-btn { opacity:.45; }
+    #view-home .targets-edit-btn:hover { opacity:.85 !important; }
 
     /* ──────────────────────── AUTH VIEW ──────────────────────── */
     .auth-page {
@@ -1404,7 +1413,7 @@
       <h1 class="home-title">What are we <em>eating</em> this week?</h1>
       <div class="home-week" id="home-week-label"></div>
     </div>
-    <div style="width:100%;position:relative;">
+    <div class="targets-wrap">
       <div class="home-targets">
         <div class="home-target">
           <div class="v"><span id="home-cal-val">1,500</span><small>cal</small></div>
@@ -1423,7 +1432,7 @@
           <div class="k">fat</div>
         </div>
       </div>
-      <button onclick="openProfileEdit()" style="position:absolute;top:50%;right:14px;transform:translateY(-50%);background:none;border:none;cursor:pointer;font-size:12px;color:var(--zen-ink-3);font-family:var(--zen-sans);letter-spacing:.02em;">✎ edit</button>
+      <button class="targets-edit-btn" onclick="openProfileEdit()" title="Edit targets & name">✎</button>
     </div>
     <div class="home-cards">
       <div class="home-card" onclick="showView('planner')">
