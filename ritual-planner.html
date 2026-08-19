@@ -232,6 +232,18 @@
 
     .header-right { display: flex; align-items: center; gap: 12px; flex-shrink: 0; }
 
+    .view-switcher {
+      display: flex; background: var(--surface); border-radius: 20px;
+      padding: 3px; gap: 2px; flex-shrink: 0;
+    }
+    .view-tab {
+      padding: 6px 18px; border-radius: 16px; font-size: 13px; font-weight: 500;
+      cursor: pointer; border: none; background: none; color: var(--muted);
+      font-family: 'Figtree', sans-serif; transition: all .15s; white-space: nowrap;
+    }
+    .view-tab:hover { color: var(--text); }
+    .view-tab.active { background: var(--card); color: var(--text); box-shadow: var(--shadow); }
+
     .targets-pill {
       background: var(--surface); border-radius: 20px;
       padding: 6px 14px; font-size: 12px; font-weight: 500;
@@ -1432,13 +1444,13 @@
 <header class="app-header">
   <div class="brand" onclick="showView(currentUser ? 'home' : 'landing')" style="cursor:pointer;" title="Back to home">macro mate</div>
 
-  <div class="week-nav">
-    <button class="week-nav-btn" id="prev-week">←</button>
-    <span id="week-label">Loading…</span>
-    <button class="week-nav-btn" id="next-week">→</button>
+  <div class="view-switcher">
+    <button class="view-tab active" onclick="showView('planner')">Dashboard</button>
+    <button class="view-tab" onclick="showView('recipes')">My Recipes</button>
   </div>
 
   <div class="header-right">
+    <button class="nav-link-btn" onclick="openShoppingList()">⎙ Shopping List</button>
     <div class="targets-pill" id="targets-pill">
       <strong>1,500</strong> cal · <strong>110g</strong> protein · <strong>183g</strong> carbs · <strong>34g</strong> fat
     </div>
@@ -1452,9 +1464,6 @@
 <div class="app-body">
   <div class="planner-grid" id="planner-grid">
     <!-- Rendered by JS -->
-  </div>
-  <div style="display:flex;justify-content:flex-end;padding:16px 0 0;border-top:1px solid var(--border);margin-top:8px;">
-    <button class="nav-link-btn" onclick="openShoppingList()" style="font-size:12px;">⎙ Shopping List</button>
   </div>
 </div>
 
@@ -1524,9 +1533,13 @@
 <div id="view-recipes" class="view">
   <header class="app-header">
     <div class="brand" onclick="showView(currentUser ? 'home' : 'landing')" style="cursor:pointer;" title="Back to home">macro mate</div>
-    <div style="font-family:'Young Serif',serif;font-size:20px;font-weight:400;letter-spacing:.5px;">My Recipes</div>
+
+    <div class="view-switcher">
+      <button class="view-tab" onclick="showView('planner')">Dashboard</button>
+      <button class="view-tab active" onclick="showView('recipes')">My Recipes</button>
+    </div>
+
     <div class="header-right">
-      <button class="nav-link-btn" onclick="showView('planner')">← Dashboard</button>
       <button class="ideas-btn" onclick="openRecipeIdeas()">⬡ Tailor Recipe</button>
       <button class="generate-btn" onclick="openRecipeForm()">+ Add Recipe</button>
     </div>
