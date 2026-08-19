@@ -1955,7 +1955,9 @@ loadRecipes();
 // ═══════════════════════════════════════════════════════
 const SUPABASE_URL = 'https://fsxwmlmofwsxznsfqxhp.supabase.co';
 const SUPABASE_KEY = 'sb_publishable_x6R1A9flVZp-f8eJu2krUw_1-IMcLcB';
-const sb = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+const sb = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY, {
+  auth: { flowType: 'implicit' }
+});
 let currentUser = null;
 
 async function initAuth() {
