@@ -1960,23 +1960,24 @@ async function initAuth() {
   // Listener must be set up BEFORE getSession so magic-link tokens
   // processed from the URL hash on page load are never missed.
   sb.auth.onAuthStateChange(async (event, session) => {
-    if (event === 'SIGNED_IN' && session?.user && !currentUser) {
+    if ((event === 'SIGNED_IN' || event === 'INITIAL_SESSION') && session?.user && !currentUser) {
       currentUser = session.user;
       await onSignedIn();
     } else if (event === 'SIGNED_OUT') {
       currentUser = null;
       currentPlan = null;
-      showView('auth');
+      // Don't navigate here — SIGNED_OUT also fires during token refresh.
+      // Navigation is handled by signOut() and initAuth() directly.
     }
   });
 
   const { data: { session } } = await sb.auth.getSession();
-  if (session?.user) {
+  if (session?.user && !currentUser) {
     currentUser = session.user;
     await onSignedIn();
     return;
   }
-  showView('auth');
+  if (!currentUser) showView('auth');
 }
 
 function goPlan() {
@@ -2032,7 +2033,10 @@ async function sendMagicLink() {
 }
 
 async function signOut() {
+  currentUser = null;
+  currentPlan = null;
   await sb.auth.signOut();
+  showView('landing');
 }
 
 // ── Targets ──
