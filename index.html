@@ -2836,7 +2836,6 @@ async function lookupUSDA(name, brand) {
 }
 
 async function lookupIngMacros(ing) {
-  if (!ing.brand) return null;
   try {
     const data  = await lookupUSDA(ing.name, ing.brand);
     if (!data)  return null;
@@ -2924,7 +2923,7 @@ async function estimateMacrosFromIngredients() {
   // Step 3: fill ingredient rows
   const ingRows = document.querySelectorAll('#ing-rows-container .ing-row');
   const CONF_TITLES = {
-    exact:  '✓ Exact — from USDA label data',
+    exact:  '✓ Exact — from USDA database',
     high:   '~ High confidence estimate',
     medium: '~ Moderate confidence estimate',
     low:    '? Low confidence — verify from nutrition label',
@@ -2952,8 +2951,8 @@ async function estimateMacrosFromIngredients() {
   // Build source note
   let note = '';
   const matchNote = dbMatches.length ? ` Matched: ${dbMatches.join('; ')}.` : '';
-  if (dbCount && aiCount) note = `${dbCount} from USDA (label data), ${aiCount} AI-estimated.${matchNote}${aiNote ? ' ' + aiNote : ''}`;
-  else if (dbCount)       note = `Macros from USDA label data.${matchNote}`;
+  if (dbCount && aiCount) note = `${dbCount} from USDA database, ${aiCount} AI-estimated.${matchNote}${aiNote ? ' ' + aiNote : ''}`;
+  else if (dbCount)       note = `Macros from USDA database.${matchNote}`;
   else if (aiNote)        note = aiNote;
   if (note && noteEl) { noteEl.textContent = '✦ ' + note; noteEl.style.display = 'block'; }
 

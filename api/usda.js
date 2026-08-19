@@ -14,7 +14,9 @@ export default async function handler(req, res) {
   if (!apiKey) return res.status(500).json({ error: 'USDA_API_KEY not set' });
 
   try {
-    const searchUrl = `https://api.nal.usda.gov/fdc/v1/foods/search?query=${encodeURIComponent(query)}&dataType=Branded&pageSize=10&api_key=${apiKey}`;
+    // Search all food types: Branded covers packaged products, Foundation + SR Legacy cover
+    // raw whole foods (fruits, vegetables, eggs, etc.)
+    const searchUrl = `https://api.nal.usda.gov/fdc/v1/foods/search?query=${encodeURIComponent(query)}&dataType=Branded,Foundation,SR%20Legacy&pageSize=10&api_key=${apiKey}`;
     const searchRes  = await fetch(searchUrl);
     const searchData = await searchRes.json();
     const foods = searchData.foods || [];
