@@ -1957,12 +1957,8 @@ const sb = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 let currentUser = null;
 
 async function initAuth() {
-  const { data: { session } } = await sb.auth.getSession();
-  if (session?.user) {
-    currentUser = session.user;
-    await onSignedIn();
-    return;
-  }
+  // Listener must be set up BEFORE getSession so magic-link tokens
+  // processed from the URL hash on page load are never missed.
   sb.auth.onAuthStateChange(async (event, session) => {
     if (event === 'SIGNED_IN' && session?.user && !currentUser) {
       currentUser = session.user;
@@ -1970,10 +1966,17 @@ async function initAuth() {
     } else if (event === 'SIGNED_OUT') {
       currentUser = null;
       currentPlan = null;
-      showView('landing');
+      showView('auth');
     }
   });
-  showView('landing');
+
+  const { data: { session } } = await sb.auth.getSession();
+  if (session?.user) {
+    currentUser = session.user;
+    await onSignedIn();
+    return;
+  }
+  showView('auth');
 }
 
 function goPlan() {
