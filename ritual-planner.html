@@ -2018,7 +2018,7 @@ async function sendMagicLink() {
 
   const { error } = await sb.auth.signInWithOtp({
     email,
-    options: { emailRedirectTo: window.location.origin + window.location.pathname },
+    options: { emailRedirectTo: 'https://macro-mate-five.vercel.app' },
   });
 
   if (error) {
