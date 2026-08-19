@@ -1439,13 +1439,9 @@
   </div>
 
   <div class="header-right">
-    <button class="nav-link-btn" onclick="showView('recipes')">My Recipes</button>
-    <button class="nav-link-btn" onclick="openShoppingList()">Shopping List</button>
-    <button class="ideas-btn" onclick="openRecipeIdeas()">⬡ Tailor Recipe</button>
     <div class="targets-pill" id="targets-pill">
       <strong>1,500</strong> cal · <strong>110g</strong> protein · <strong>183g</strong> carbs · <strong>34g</strong> fat
     </div>
-    <button class="nav-link-btn" onclick="signOut()" title="Sign out">↪ Sign out</button>
     <button class="generate-btn" id="generate-btn">
       <span class="spin-icon">✦</span> Generate Plan
     </button>
@@ -1456,6 +1452,9 @@
 <div class="app-body">
   <div class="planner-grid" id="planner-grid">
     <!-- Rendered by JS -->
+  </div>
+  <div style="display:flex;justify-content:flex-end;padding:16px 0 0;border-top:1px solid var(--border);margin-top:8px;">
+    <button class="nav-link-btn" onclick="openShoppingList()" style="font-size:12px;">⎙ Shopping List</button>
   </div>
 </div>
 
@@ -1528,6 +1527,7 @@
     <div style="font-family:'Young Serif',serif;font-size:20px;font-weight:400;letter-spacing:.5px;">My Recipes</div>
     <div class="header-right">
       <button class="nav-link-btn" onclick="showView('planner')">← Dashboard</button>
+      <button class="ideas-btn" onclick="openRecipeIdeas()">⬡ Tailor Recipe</button>
       <button class="generate-btn" onclick="openRecipeForm()">+ Add Recipe</button>
     </div>
   </header>
