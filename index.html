@@ -1464,6 +1464,11 @@
 
 <!-- ─── MAIN ─── -->
 <div class="app-body">
+  <div style="display:flex;align-items:center;justify-content:center;gap:12px;padding:8px 0 16px;font-size:14px;font-weight:500;color:var(--text);">
+    <button class="week-nav-btn" id="prev-week">←</button>
+    <span id="week-label" style="min-width:200px;text-align:center;">Loading…</span>
+    <button class="week-nav-btn" id="next-week">→</button>
+  </div>
   <div class="planner-grid" id="planner-grid">
     <!-- Rendered by JS -->
   </div>
@@ -1974,6 +1979,12 @@ async function initAuth() {
       // Navigation is handled by signOut() and initAuth() directly.
     }
   });
+
+  // If a magic-link token is in the URL, give Supabase up to 1s to process it
+  // before deciding there's no session. This handles the async hash-processing race.
+  const hasToken = window.location.hash.includes('access_token') || window.location.search.includes('code=');
+  const delay = hasToken ? 800 : 0;
+  await new Promise(r => setTimeout(r, delay));
 
   const { data: { session } } = await sb.auth.getSession();
   if (session?.user && !currentUser) {
