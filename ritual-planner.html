@@ -4,8 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Macro Mate — Meal Planner</title>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200;0,6..72,300;0,6..72,400;1,6..72,200;1,6..72,300&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Young+Serif&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script src="config.js"></script>
   <style>
@@ -33,7 +32,7 @@
       --shadow-lg: 0 6px 32px rgba(60,45,30,.11);
     }
 
-    html, body { height: 100%; font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--text); }
+    html, body { height: 100%; font-family: 'Jost', sans-serif; background: var(--bg); color: var(--text); }
 
     /* ──────────────────────── VIEW TRANSITIONS ──────────────────────── */
     .view { display: none; }
@@ -48,7 +47,7 @@
       --matcha-1:#DDE9C6;--matcha-2:#C2D9A3;--matcha-3:#9BB57C;--matcha-4:#6E8A54;--moss:#4C6140;
       --yuzu-1:#F7ECBE;--yuzu-2:#EEDC93;--yuzu-3:#E0C462;
       --zen-ink:#232519;--zen-ink-2:#4F5442;--zen-ink-3:#6C7160;
-      --display:'Newsreader',Georgia,serif;--zen-sans:'Figtree',system-ui,sans-serif;
+      --display:'Young Serif',Georgia,serif;--zen-sans:'Jost',system-ui,sans-serif;
       position:relative;
       min-height:100vh; display:none; flex-direction:column;
       font-family:var(--zen-sans); color:var(--zen-ink); background:var(--rice);
@@ -195,7 +194,7 @@
 
     .brand {
       display: flex; align-items: center; gap: 10px;
-      font-family: 'Newsreader', Georgia, serif;
+      font-family: 'Young Serif', Georgia, serif;
       font-size: 22px; font-weight: 300; letter-spacing: .02em;
       color: var(--text); flex-shrink: 0; user-select: none;
     }
@@ -234,7 +233,7 @@
     .generate-btn {
       background: var(--text); color: white; border: none;
       border-radius: 10px; padding: 9px 18px;
-      font-family: 'DM Sans', sans-serif; font-size: 13px; font-weight: 500;
+      font-family: 'Jost', sans-serif; font-size: 13px; font-weight: 500;
       cursor: pointer; letter-spacing: .3px; white-space: nowrap;
       transition: opacity .15s; display: flex; align-items: center; gap: 6px;
     }
@@ -266,7 +265,7 @@
     }
 
     .day-date-label {
-      font-family: 'Cormorant Garamond', serif;
+      font-family: 'Young Serif', serif;
       font-size: 18px; font-weight: 400; color: var(--text);
     }
 
@@ -330,7 +329,7 @@
     .card-emoji { font-size: 22px; line-height: 1; }
 
     .card-name {
-      font-family: 'Cormorant Garamond', serif;
+      font-family: 'Young Serif', serif;
       font-size: 14px; font-weight: 500; color: var(--text);
       line-height: 1.25;
       display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;
@@ -380,7 +379,7 @@
     }
 
     .totals-cal {
-      font-family: 'Cormorant Garamond', serif;
+      font-family: 'Young Serif', serif;
       font-size: 20px; font-weight: 500; color: var(--text);
       margin-bottom: 6px;
     }
@@ -445,7 +444,7 @@
     .modal-current-emoji { font-size: 52px; }
 
     .modal-current-name {
-      font-family: 'Cormorant Garamond', serif;
+      font-family: 'Young Serif', serif;
       font-size: 22px; font-weight: 400; color: white;
       line-height: 1.2;
     }
@@ -470,7 +469,7 @@
     }
 
     .modal-macro-num {
-      font-family: 'Cormorant Garamond', serif;
+      font-family: 'Young Serif', serif;
       font-size: 22px; font-weight: 500; color: white;
     }
 
@@ -494,7 +493,7 @@
     }
 
     .modal-alts-title {
-      font-family: 'Cormorant Garamond', serif;
+      font-family: 'Young Serif', serif;
       font-size: 20px; font-weight: 400;
     }
 
@@ -538,7 +537,7 @@
     .alt-info { flex: 1; min-width: 0; }
 
     .alt-name {
-      font-family: 'Cormorant Garamond', serif;
+      font-family: 'Young Serif', serif;
       font-size: 16px; font-weight: 500; color: var(--text);
       margin-bottom: 4px; line-height: 1.2;
     }
@@ -558,7 +557,7 @@
     .alt-select-btn {
       background: var(--text); color: white; border: none;
       border-radius: 10px; padding: 7px 14px;
-      font-family: 'DM Sans', sans-serif; font-size: 12px; font-weight: 500;
+      font-family: 'Jost', sans-serif; font-size: 12px; font-weight: 500;
       cursor: pointer; white-space: nowrap; flex-shrink: 0;
       transition: opacity .15s;
     }
@@ -583,7 +582,7 @@
     .empty-state-icon { font-size: 48px; margin-bottom: 16px; }
 
     .empty-state-title {
-      font-family: 'Cormorant Garamond', serif;
+      font-family: 'Young Serif', serif;
       font-size: 28px; font-weight: 400; color: var(--text); margin-bottom: 8px;
     }
 
@@ -592,7 +591,7 @@
     .empty-generate-btn {
       background: var(--text); color: white; border: none;
       border-radius: 12px; padding: 12px 28px;
-      font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 500;
+      font-family: 'Jost', sans-serif; font-size: 14px; font-weight: 500;
       cursor: pointer; transition: opacity .15s;
     }
     .empty-generate-btn:hover { opacity: .85; }
@@ -600,7 +599,7 @@
     /* ──────────────────────── NAV LINK BUTTON ──────────────────────── */
     .nav-link-btn {
       background: none; border: none;
-      font-family: 'DM Sans', sans-serif; font-size: 13px; font-weight: 500;
+      font-family: 'Jost', sans-serif; font-size: 13px; font-weight: 500;
       color: var(--muted); cursor: pointer; transition: color .15s; padding: 0 4px;
     }
     .nav-link-btn:hover { color: var(--text); }
@@ -619,7 +618,7 @@
 
     .rtab {
       background: var(--surface); border: none; border-radius: 20px;
-      padding: 7px 16px; font-family: 'DM Sans', sans-serif;
+      padding: 7px 16px; font-family: 'Jost', sans-serif;
       font-size: 13px; font-weight: 500; color: var(--muted);
       cursor: pointer; transition: all .15s;
     }
@@ -646,7 +645,7 @@
     .cuisine-filter select {
       appearance: none; -webkit-appearance: none;
       background: transparent; border: none; outline: none;
-      font-family: 'DM Sans', sans-serif; font-size: 13px; font-weight: 600;
+      font-family: 'Jost', sans-serif; font-size: 13px; font-weight: 600;
       color: var(--sage); cursor: pointer;
       padding-right: 16px; margin-left: 2px;
       background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='10' height='6'><path d='M0 0l5 6 5-6z' fill='%237A9E75'/></svg>");
@@ -657,7 +656,7 @@
 
     .io-btn {
       background: none; border: 1px solid var(--border); border-radius: 10px;
-      padding: 7px 14px; font-family: 'DM Sans', sans-serif;
+      padding: 7px 14px; font-family: 'Jost', sans-serif;
       font-size: 12px; font-weight: 500; color: var(--muted);
       cursor: pointer; transition: all .15s; white-space: nowrap;
       display: inline-flex; align-items: center;
@@ -725,7 +724,7 @@
     .cat-dessert   { background: var(--dessert-bg); color: var(--dessert); }
 
     .rolodex-name {
-      font-family: 'Cormorant Garamond', serif;
+      font-family: 'Young Serif', serif;
       font-size: 16px; font-weight: 500; color: var(--text); line-height: 1.25;
     }
     .rolodex-meta { font-size: 11px; color: var(--light); font-weight: 500; }
@@ -755,7 +754,7 @@
     .ing-field {
       background: var(--surface); border: 1px solid var(--border);
       border-radius: 8px; padding: 7px 10px;
-      font-family: 'DM Sans', sans-serif; font-size: 13px; color: var(--text);
+      font-family: 'Jost', sans-serif; font-size: 13px; color: var(--text);
       outline: none; transition: border-color .15s; width: 100%;
     }
     .ing-field:focus { border-color: var(--sage); }
@@ -771,7 +770,7 @@
     .ing-add-btn {
       background: none; border: 1px dashed var(--border);
       border-radius: 8px; padding: 7px 12px; width: 100%;
-      font-family: 'DM Sans', sans-serif; font-size: 13px; color: var(--muted);
+      font-family: 'Jost', sans-serif; font-size: 13px; color: var(--muted);
       cursor: pointer; transition: all .15s; margin-top: 2px;
     }
     .ing-add-btn:hover { border-color: var(--sage); color: var(--sage); }
@@ -810,7 +809,7 @@
     .form-group textarea {
       background: var(--surface); border: 1px solid var(--border);
       border-radius: 10px; padding: 9px 12px;
-      font-family: 'DM Sans', sans-serif; font-size: 14px; color: var(--text);
+      font-family: 'Jost', sans-serif; font-size: 14px; color: var(--text);
       outline: none; transition: border-color .15s; width: 100%;
     }
     .form-group input:focus,
@@ -824,7 +823,7 @@
 
     .form-cancel-btn {
       background: none; border: 1px solid var(--border); border-radius: 10px;
-      padding: 9px 20px; font-family: 'DM Sans', sans-serif;
+      padding: 9px 20px; font-family: 'Jost', sans-serif;
       font-size: 13px; font-weight: 500; color: var(--muted);
       cursor: pointer; transition: all .15s;
     }
@@ -904,7 +903,7 @@
     }
 
     .shopping-title {
-      font-family: 'Cormorant Garamond', serif;
+      font-family: 'Young Serif', serif;
       font-size: 22px; font-weight: 400;
     }
 
@@ -913,7 +912,7 @@
     .shopping-print-btn {
       background: var(--text); color: white; border: none;
       border-radius: 10px; padding: 8px 16px;
-      font-family: 'DM Sans', sans-serif; font-size: 12px; font-weight: 500;
+      font-family: 'Jost', sans-serif; font-size: 12px; font-weight: 500;
       cursor: pointer; transition: opacity .15s;
       display: flex; align-items: center; gap: 6px;
     }
@@ -969,7 +968,7 @@
       display: flex; flex-direction: column; align-items: center;
     }
     .auth-heading {
-      font-family: 'Cormorant Garamond', serif;
+      font-family: 'Young Serif', serif;
       font-size: 26px; font-weight: 400; color: var(--text);
       text-align: center; margin-bottom: 8px;
     }
@@ -981,21 +980,21 @@
     .auth-input {
       background: var(--surface); border: 1px solid var(--border);
       border-radius: 12px; padding: 12px 16px;
-      font-family: 'DM Sans', sans-serif; font-size: 15px; color: var(--text);
+      font-family: 'Jost', sans-serif; font-size: 15px; color: var(--text);
       outline: none; transition: border-color .15s; width: 100%;
     }
     .auth-input:focus { border-color: var(--sage); }
     .auth-btn {
       background: var(--text); color: white; border: none;
       border-radius: 12px; padding: 13px;
-      font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 500;
+      font-family: 'Jost', sans-serif; font-size: 14px; font-weight: 500;
       cursor: pointer; transition: opacity .15s; width: 100%;
     }
     .auth-btn:hover { opacity: .85; }
     .auth-btn:disabled { opacity: .5; cursor: default; }
     .auth-error { font-size: 13px; color: var(--warm); min-height: 16px; margin: 0; }
     .auth-link-btn {
-      background: none; border: none; font-family: 'DM Sans', sans-serif;
+      background: none; border: none; font-family: 'Jost', sans-serif;
       font-size: 13px; color: var(--muted); cursor: pointer;
     }
     .auth-link-btn:hover { color: var(--text); }
@@ -1005,7 +1004,7 @@
       background: var(--sage-bg); color: var(--sage);
       border: 1px solid rgba(122,158,117,.3);
       border-radius: 10px; padding: 7px 14px;
-      font-family: 'DM Sans', sans-serif; font-size: 13px; font-weight: 500;
+      font-family: 'Jost', sans-serif; font-size: 13px; font-weight: 500;
       cursor: pointer; transition: all .15s; white-space: nowrap;
       display: flex; align-items: center; gap: 6px;
     }
@@ -1030,7 +1029,7 @@
     .ri-input-area textarea {
       background: var(--surface); border: 1px solid var(--border);
       border-radius: 12px; padding: 12px 14px;
-      font-family: 'DM Sans', sans-serif; font-size: 13px; color: var(--text);
+      font-family: 'Jost', sans-serif; font-size: 13px; color: var(--text);
       outline: none; transition: border-color .15s; resize: vertical; width: 100%;
       line-height: 1.65; min-height: 140px;
     }
@@ -1054,7 +1053,7 @@
       display: flex; flex-direction: column; gap: 10px;
     }
     .tailor-recipe-name {
-      font-family: 'Cormorant Garamond', serif;
+      font-family: 'Young Serif', serif;
       font-size: 21px; font-weight: 400; color: white; line-height: 1.25;
     }
     .tailor-recipe-sub { font-size: 11px; color: rgba(255,255,255,.4); margin-top: -4px; }
@@ -1102,7 +1101,7 @@
     .tailor-meta-label em { font-style: italic; font-weight: 400; text-transform: none; letter-spacing: 0; }
     .tailor-meta-input {
       background: var(--card); border: 1px solid var(--border); border-radius: 8px;
-      padding: 6px 9px; font-family: 'DM Sans', sans-serif; font-size: 13px;
+      padding: 6px 9px; font-family: 'Jost', sans-serif; font-size: 13px;
       color: var(--text); outline: none; transition: border-color .15s;
     }
     .tailor-meta-input:focus { border-color: var(--sage); }
@@ -1377,7 +1376,7 @@
 <div id="view-recipes" class="view">
   <header class="app-header">
     <div class="brand" onclick="showView('landing')" style="cursor:pointer;" title="Back to home">macro mate</div>
-    <div style="font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:400;letter-spacing:.5px;">My Recipes</div>
+    <div style="font-family:'Young Serif',serif;font-size:20px;font-weight:400;letter-spacing:.5px;">My Recipes</div>
     <div class="header-right">
       <button class="nav-link-btn" onclick="showView('planner')">← Dashboard</button>
       <button class="generate-btn" onclick="openRecipeForm()">+ Add Recipe</button>
@@ -1472,7 +1471,7 @@
     <form class="recipe-form-body" id="recipe-form" onsubmit="handleRecipeFormSubmit(event)">
       <div style="display:flex;gap:8px;align-items:center;">
         <input type="url" id="rf-url" placeholder="Paste a recipe URL to auto-fill…"
-          style="flex:1;background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:9px 12px;font-family:'DM Sans',sans-serif;font-size:13px;color:var(--text);outline:none;transition:border-color .15s;"
+          style="flex:1;background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:9px 12px;font-family:'Jost',sans-serif;font-size:13px;color:var(--text);outline:none;transition:border-color .15s;"
           onkeydown="if(event.key==='Enter'){event.preventDefault();importFromURL();}">
         <button type="button" id="rf-import-btn" class="io-btn" onclick="importFromURL()" style="white-space:nowrap;flex-shrink:0;">↓ Import URL</button>
         <button type="button" class="io-btn" onclick="document.getElementById('rf-paste-section').style.display=document.getElementById('rf-paste-section').style.display==='none'?'block':'none'" style="white-space:nowrap;flex-shrink:0;">↓ Paste text</button>
@@ -1480,7 +1479,7 @@
       <div id="rf-import-status" style="font-size:12px;color:var(--muted);min-height:16px;margin-top:-8px;"></div>
       <div id="rf-paste-section" style="display:none;">
         <textarea id="rf-paste-text" rows="5" placeholder="Paste the recipe text here (ingredients + instructions)…"
-          style="width:100%;background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:9px 12px;font-family:'DM Sans',sans-serif;font-size:13px;color:var(--text);outline:none;resize:vertical;"></textarea>
+          style="width:100%;background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:9px 12px;font-family:'Jost',sans-serif;font-size:13px;color:var(--text);outline:none;resize:vertical;"></textarea>
         <button type="button" class="io-btn" onclick="importFromText()" style="margin-top:6px;">↓ Import from text</button>
       </div>
       <div class="form-row">
@@ -3349,7 +3348,7 @@ function printShoppingList() {
   });
 
   const win = window.open('', '_blank');
-  win.document.write('<!DOCTYPE html>\n<html><head><meta charset="UTF-8"><title>Shopping List — ' + weekLabel + '</title>\n<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">\n<style>\n  body{font-family:\'DM Sans\',sans-serif;color:#1C1A18;background:white;max-width:560px;margin:0 auto;padding:32px 24px;}\n  h1{font-family:\'Cormorant Garamond\',serif;font-weight:400;font-size:30px;margin:0 0 4px;}\n  .week{font-size:13px;color:#9A9490;margin-bottom:32px;}\n  .section-title{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:#9A9490;margin:28px 0 10px;padding-bottom:6px;border-bottom:1px solid #EAE4DB;}\n  ul{list-style:none;padding:0;margin:0 0 8px;}\n  li{font-size:13px;padding:5px 0;display:flex;align-items:baseline;gap:10px;}\n  .check{font-size:14px;color:#C2BBB3;flex-shrink:0;}\n  @media print{body{padding:16px;}button{display:none;}}\n</style></head><body>\n<h1>Shopping List</h1><div class="week">' + weekLabel + '</div>\n' + sections + '\n</body></html>');
+  win.document.write('<!DOCTYPE html>\n<html><head><meta charset="UTF-8"><title>Shopping List — ' + weekLabel + '</title>\n<link href="https://fonts.googleapis.com/css2?family=Young+Serif&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">\n<style>\n  body{font-family:\'Jost\',sans-serif;color:#1C1A18;background:white;max-width:560px;margin:0 auto;padding:32px 24px;}\n  h1{font-family:\'Young Serif\',serif;font-weight:400;font-size:30px;margin:0 0 4px;}\n  .week{font-size:13px;color:#9A9490;margin-bottom:32px;}\n  .section-title{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:#9A9490;margin:28px 0 10px;padding-bottom:6px;border-bottom:1px solid #EAE4DB;}\n  ul{list-style:none;padding:0;margin:0 0 8px;}\n  li{font-size:13px;padding:5px 0;display:flex;align-items:baseline;gap:10px;}\n  .check{font-size:14px;color:#C2BBB3;flex-shrink:0;}\n  @media print{body{padding:16px;}button{display:none;}}\n</style></head><body>\n<h1>Shopping List</h1><div class="week">' + weekLabel + '</div>\n' + sections + '\n</body></html>');
   win.document.close();
   win.onload = () => { win.focus(); win.print(); };
 }
