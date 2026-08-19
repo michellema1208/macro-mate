@@ -75,7 +75,7 @@
     @keyframes zenBreathe{0%,100%{opacity:.55;transform:translateX(-50%) scale(1)}50%{opacity:.9;transform:translateX(-50%) scale(1.07)}}
 
     #view-landing .zen-ripples{position:absolute;left:50%;bottom:-14vmax;width:44vmax;height:44vmax;transform:translateX(-50%);pointer-events:none}
-    #view-landing .zen-ripples i{position:absolute;inset:0;border-radius:50%;border:1px solid rgba(110,138,84,.24);animation:zenRipple 11s ease-out infinite;opacity:0}
+    #view-landing .zen-ripples i{position:absolute;inset:0;border-radius:50%;border:2.5px solid rgba(110,138,84,.4);animation:zenRipple 11s ease-out infinite;opacity:0}
     #view-landing .zen-ripples i:nth-child(2){animation-delay:-3.6s}
     #view-landing .zen-ripples i:nth-child(3){animation-delay:-7.2s}
     @keyframes zenRipple{0%{transform:scale(.35);opacity:0}18%{opacity:.7}100%{transform:scale(1.05);opacity:0}}
@@ -91,18 +91,18 @@
     #view-landing .zen-leaf{position:absolute;animation:zenSway 15s ease-in-out infinite;transform-origin:50% 50%}
     #view-landing .zen-leaf svg{display:block;filter:drop-shadow(0 6px 12px rgba(76,97,64,.14))}
     @keyframes zenSway{0%,100%{transform:translate3d(0,0,0) rotate(var(--rot,0deg))}
-      33%{transform:translate3d(10px,-22px,0) rotate(calc(var(--rot,0deg) + 9deg))}
-      66%{transform:translate3d(-8px,-9px,0) rotate(calc(var(--rot,0deg) - 7deg))}}
-    #view-landing .zl1{left:5%;top:16%;--rot:-18deg;animation-duration:17s}
-    #view-landing .zl2{left:12%;top:38%;--rot:24deg;animation-duration:21s;animation-delay:-5s}
-    #view-landing .zl3{left:3%;top:62%;--rot:-8deg;animation-duration:19s;animation-delay:-9s}
-    #view-landing .zl4{left:15%;top:78%;--rot:36deg;animation-duration:23s;animation-delay:-2s}
-    #view-landing .zl5{left:8%;top:88%;--rot:-30deg;animation-duration:16s;animation-delay:-12s}
-    #view-landing .zl6{right:6%;top:14%;--rot:22deg;animation-duration:18s;animation-delay:-3s}
-    #view-landing .zl7{right:13%;top:34%;--rot:-16deg;animation-duration:22s;animation-delay:-7s}
-    #view-landing .zl8{right:4%;top:56%;--rot:30deg;animation-duration:20s;animation-delay:-11s}
-    #view-landing .zl9{right:14%;top:74%;--rot:-26deg;animation-duration:17s;animation-delay:-6s}
-    #view-landing .zl10{right:7%;top:90%;--rot:12deg;animation-duration:24s;animation-delay:-14s}
+      33%{transform:translate3d(18px,-36px,0) rotate(calc(var(--rot,0deg) + 15deg))}
+      66%{transform:translate3d(-14px,-16px,0) rotate(calc(var(--rot,0deg) - 12deg))}}
+    #view-landing .zl1{left:5%;top:16%;--rot:-18deg;animation-duration:10s}
+    #view-landing .zl2{left:12%;top:38%;--rot:24deg;animation-duration:13s;animation-delay:-5s}
+    #view-landing .zl3{left:3%;top:62%;--rot:-8deg;animation-duration:11s;animation-delay:-9s}
+    #view-landing .zl4{left:15%;top:78%;--rot:36deg;animation-duration:14s;animation-delay:-2s}
+    #view-landing .zl5{left:8%;top:88%;--rot:-30deg;animation-duration:9s;animation-delay:-12s}
+    #view-landing .zl6{right:6%;top:14%;--rot:22deg;animation-duration:11s;animation-delay:-3s}
+    #view-landing .zl7{right:13%;top:34%;--rot:-16deg;animation-duration:13s;animation-delay:-7s}
+    #view-landing .zl8{right:4%;top:56%;--rot:30deg;animation-duration:12s;animation-delay:-11s}
+    #view-landing .zl9{right:14%;top:74%;--rot:-26deg;animation-duration:10s;animation-delay:-6s}
+    #view-landing .zl10{right:7%;top:90%;--rot:12deg;animation-duration:15s;animation-delay:-14s}
     @media (prefers-reduced-motion:reduce){
       #view-landing .zen-breath,#view-landing .zen-ripples i,#view-landing .zen-steam g,#view-landing .zen-leaf{animation:none}
       #view-landing .zen-ripples i{opacity:.35}
