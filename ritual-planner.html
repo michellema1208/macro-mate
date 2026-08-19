@@ -194,12 +194,16 @@
     }
 
     .brand {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 22px; font-weight: 400; letter-spacing: 3px;
-      text-transform: uppercase; color: var(--text);
-      flex-shrink: 0; user-select: none;
+      display: flex; align-items: center; gap: 10px;
+      font-family: 'Newsreader', Georgia, serif;
+      font-size: 22px; font-weight: 300; letter-spacing: .02em;
+      color: var(--text); flex-shrink: 0; user-select: none;
     }
-    .brand span { color: var(--sage); font-style: italic; }
+    .brand::before {
+      content: ''; width: 9px; height: 9px; border-radius: 50%;
+      background: var(--sage); flex-shrink: 0;
+    }
+    .brand span { display: none; }
 
     .week-nav {
       display: flex; align-items: center; gap: 12px;
@@ -1154,7 +1158,7 @@
 <div id="view-auth" class="view">
   <div class="auth-page">
     <div class="auth-card">
-      <div class="landing-brand" style="margin-bottom:32px;">Macro <span>Mate</span></div>
+      <div class="zen-brand" style="margin-bottom:32px;"><span class="zen-seed"></span>macro mate</div>
       <button class="auth-link-btn" style="margin:-20px 0 22px;" onclick="showView('landing')">← back to home</button>
       <div id="auth-email-step">
         <div class="auth-heading">Welcome back</div>
@@ -1207,7 +1211,7 @@
       <div class="zen-nav-links"></div>
       <div class="zen-nav-right zen-nav-actions">
         <button class="zen-nav-link" id="zen-auth-btn" onclick="showView('auth')">log in</button>
-        <button class="zen-quiet-btn" onclick="goPlan()">Begin</button>
+        <button class="zen-quiet-btn" onclick="goPlan()">begin</button>
       </div>
     </nav>
 
@@ -1278,7 +1282,7 @@
 
 <!-- ─── HEADER ─── -->
 <header class="app-header">
-  <div class="brand" onclick="showView('landing')" style="cursor:pointer;" title="Back to home">Macro <span>Mate</span></div>
+  <div class="brand" onclick="showView('landing')" style="cursor:pointer;" title="Back to home">macro mate</div>
 
   <div class="week-nav">
     <button class="week-nav-btn" id="prev-week">←</button>
@@ -1372,7 +1376,7 @@
 <!-- ─── RECIPES VIEW ─── -->
 <div id="view-recipes" class="view">
   <header class="app-header">
-    <div class="brand" onclick="showView('landing')" style="cursor:pointer;" title="Back to home">Macro <span>Mate</span></div>
+    <div class="brand" onclick="showView('landing')" style="cursor:pointer;" title="Back to home">macro mate</div>
     <div style="font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:400;letter-spacing:.5px;">My Recipes</div>
     <div class="header-right">
       <button class="nav-link-btn" onclick="showView('planner')">← Dashboard</button>
