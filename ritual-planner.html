@@ -965,6 +965,98 @@
     .shopping-empty-icon { font-size: 40px; margin-bottom: 12px; }
     .shopping-empty-text { font-size: 14px; color: var(--muted); }
 
+    /* ──────────────────────── HOME DASHBOARD ──────────────────────── */
+    #view-home {
+      --rice:#FCFAF1;--tea:#EDF1DE;--matcha-1:#DDE9C6;--matcha-4:#6E8A54;--moss:#4C6140;
+      --yuzu-1:#F7ECBE;--zen-ink:#232519;--zen-ink-2:#4F5442;--zen-ink-3:#6C7160;
+      --display:'Newsreader',Georgia,serif;--zen-sans:'Figtree',system-ui,sans-serif;
+      min-height:100vh; display:none; flex-direction:column;
+      font-family:var(--zen-sans); color:var(--zen-ink);
+      background:
+        radial-gradient(90% 60% at 50% -8%,rgba(247,236,190,.55),rgba(247,236,190,0) 62%),
+        radial-gradient(70% 55% at 10% 22%,rgba(194,217,163,.35),rgba(194,217,163,0) 68%),
+        radial-gradient(90% 70% at 50% 108%,rgba(155,181,124,.28),rgba(155,181,124,0) 66%),
+        linear-gradient(180deg,var(--rice),var(--tea));
+    }
+    #view-home.active { display:flex; }
+    #view-home .home-nav {
+      display:flex; align-items:center; justify-content:space-between; padding:26px 34px;
+    }
+    #view-home .home-nav-link {
+      font-size:14px; color:var(--zen-ink-3); background:none; border:none;
+      cursor:pointer; padding:0; font-family:var(--zen-sans);
+    }
+    #view-home .home-nav-link:hover { color:var(--zen-ink); }
+    #view-home .home-body {
+      flex:1; display:flex; flex-direction:column; align-items:center;
+      justify-content:center; padding:32px 24px 80px;
+      gap:44px; max-width:720px; margin:0 auto; width:100%;
+    }
+    #view-home .home-greeting { text-align:center; display:flex; flex-direction:column; gap:10px; }
+    #view-home .home-eyebrow {
+      font-size:12px; letter-spacing:.28em; text-transform:uppercase;
+      color:var(--moss); font-weight:500; display:flex; align-items:center;
+      gap:11px; justify-content:center;
+    }
+    #view-home .home-eyebrow::before,#view-home .home-eyebrow::after {
+      content:""; width:26px; height:1px; background:rgba(76,97,64,.35);
+    }
+    #view-home .home-title {
+      font-family:var(--display); font-weight:200;
+      font-size:clamp(34px,5vw,64px); line-height:1.07;
+      letter-spacing:-.025em; color:var(--zen-ink); margin:0;
+    }
+    #view-home .home-title em { font-style:italic; color:var(--moss); }
+    #view-home .home-week { font-size:14px; color:var(--zen-ink-3); margin-top:4px; }
+    #view-home .home-targets {
+      display:flex; align-items:stretch;
+      background:rgba(255,255,255,.55); border:1px solid rgba(76,97,64,.12);
+      border-radius:18px; overflow:hidden; backdrop-filter:blur(8px); width:100%;
+    }
+    #view-home .home-target {
+      flex:1; padding:22px 0; display:flex; flex-direction:column; align-items:center; gap:7px;
+    }
+    #view-home .home-target + .home-target { border-left:1px solid rgba(76,97,64,.1); }
+    #view-home .home-target .v {
+      font-family:var(--display); font-weight:300;
+      font-size:clamp(20px,2.4vw,28px); line-height:1; color:var(--zen-ink);
+    }
+    #view-home .home-target .v small {
+      font-size:.44em; font-weight:400; color:var(--zen-ink-3); margin-left:2px; letter-spacing:0;
+    }
+    #view-home .home-target .k {
+      font-size:10.5px; letter-spacing:.14em; text-transform:uppercase; color:var(--zen-ink-3);
+    }
+    #view-home .home-cards { display:grid; grid-template-columns:1fr 1fr; gap:14px; width:100%; }
+    #view-home .home-card {
+      background:rgba(255,255,255,.6); border:1px solid rgba(76,97,64,.11);
+      border-radius:22px; padding:28px 24px; cursor:pointer;
+      backdrop-filter:blur(8px); transition:transform .2s,box-shadow .2s,background .2s;
+      display:flex; flex-direction:column; gap:10px;
+    }
+    #view-home .home-card:hover {
+      transform:translateY(-3px);
+      box-shadow:0 14px 36px -12px rgba(76,97,64,.22);
+      background:rgba(255,255,255,.82);
+    }
+    #view-home .home-card-icon {
+      width:42px; height:42px; border-radius:13px;
+      display:flex; align-items:center; justify-content:center; font-size:19px;
+    }
+    #view-home .week-icon { background:var(--matcha-1); }
+    #view-home .recipe-icon { background:var(--yuzu-1); }
+    #view-home .home-card h2 {
+      font-family:var(--display); font-weight:300; font-size:22px;
+      line-height:1.15; letter-spacing:-.01em; color:var(--zen-ink); margin:0;
+    }
+    #view-home .home-card p { font-size:13.5px; color:var(--zen-ink-3); line-height:1.55; margin:0; }
+    #view-home .home-card-arrow {
+      margin-top:auto; padding-top:14px; font-size:17px;
+      color:var(--matcha-4); transition:transform .2s;
+    }
+    #view-home .home-card:hover .home-card-arrow { transform:translateX(4px); }
+    @media (max-width:560px) { #view-home .home-cards { grid-template-columns:1fr; } }
+
     /* ──────────────────────── AUTH VIEW ──────────────────────── */
     .auth-page {
       min-height: 100vh; display: flex;
@@ -1286,12 +1378,59 @@
   </footer>
 </div>
 
+<!-- ─── HOME DASHBOARD ─── -->
+<div id="view-home" class="view">
+  <nav class="home-nav">
+    <div class="zen-brand" onclick="showView('landing')" style="cursor:pointer;"><span class="zen-seed"></span>macro mate</div>
+    <button class="home-nav-link" onclick="signOut()">sign out</button>
+  </nav>
+  <div class="home-body">
+    <div class="home-greeting">
+      <span class="home-eyebrow" id="home-greeting-text">good morning</span>
+      <h1 class="home-title">What are we <em>eating</em> this week?</h1>
+      <div class="home-week" id="home-week-label"></div>
+    </div>
+    <div class="home-targets">
+      <div class="home-target">
+        <div class="v"><span id="home-cal-val">1,500</span><small>cal</small></div>
+        <div class="k">daily target</div>
+      </div>
+      <div class="home-target">
+        <div class="v"><span id="home-p-val">110</span><small>g</small></div>
+        <div class="k">protein</div>
+      </div>
+      <div class="home-target">
+        <div class="v"><span id="home-c-val">183</span><small>g</small></div>
+        <div class="k">carbs</div>
+      </div>
+      <div class="home-target">
+        <div class="v"><span id="home-f-val">34</span><small>g</small></div>
+        <div class="k">fat</div>
+      </div>
+    </div>
+    <div class="home-cards">
+      <div class="home-card" onclick="showView('planner')">
+        <div class="home-card-icon week-icon">📅</div>
+        <h2>My Week</h2>
+        <p>Generate and view your weekly meal plan, balanced to your macro targets.</p>
+        <div class="home-card-arrow">→</div>
+      </div>
+      <div class="home-card" onclick="showView('recipes')">
+        <div class="home-card-icon recipe-icon">🍽️</div>
+        <h2>My Recipes</h2>
+        <p>Browse, add, and manage your personal recipe collection.</p>
+        <div class="home-card-arrow">→</div>
+      </div>
+    </div>
+  </div>
+</div>
+
 <!-- ─── PLANNER ─── -->
 <div id="view-planner" class="view">
 
 <!-- ─── HEADER ─── -->
 <header class="app-header">
-  <div class="brand" onclick="showView('landing')" style="cursor:pointer;" title="Back to home">macro mate</div>
+  <div class="brand" onclick="showView(currentUser ? 'home' : 'landing')" style="cursor:pointer;" title="Back to home">macro mate</div>
 
   <div class="week-nav">
     <button class="week-nav-btn" id="prev-week">←</button>
@@ -1385,7 +1524,7 @@
 <!-- ─── RECIPES VIEW ─── -->
 <div id="view-recipes" class="view">
   <header class="app-header">
-    <div class="brand" onclick="showView('landing')" style="cursor:pointer;" title="Back to home">macro mate</div>
+    <div class="brand" onclick="showView(currentUser ? 'home' : 'landing')" style="cursor:pointer;" title="Back to home">macro mate</div>
     <div style="font-family:'Young Serif',serif;font-size:20px;font-weight:400;letter-spacing:.5px;">My Recipes</div>
     <div class="header-right">
       <button class="nav-link-btn" onclick="showView('planner')">← Dashboard</button>
@@ -1825,7 +1964,19 @@ async function initAuth() {
 }
 
 function goPlan() {
-  showView(currentUser ? 'planner' : 'auth');
+  showView(currentUser ? 'home' : 'auth');
+}
+
+function updateHomeView() {
+  const h = new Date().getHours();
+  const greeting = h < 12 ? 'good morning' : h < 17 ? 'good afternoon' : 'good evening';
+  const el = id => document.getElementById(id);
+  if (el('home-greeting-text')) el('home-greeting-text').textContent = greeting;
+  if (el('home-week-label'))    el('home-week-label').textContent = 'Week of ' + fmtWeekRange(getWeekDates(weekOffset));
+  if (el('home-cal-val'))       el('home-cal-val').textContent = TARGETS.cal.toLocaleString();
+  if (el('home-p-val'))         el('home-p-val').textContent   = TARGETS.p;
+  if (el('home-c-val'))         el('home-c-val').textContent   = TARGETS.c;
+  if (el('home-f-val'))         el('home-f-val').textContent   = TARGETS.f;
 }
 
 async function onSignedIn() {
@@ -1833,7 +1984,7 @@ async function onSignedIn() {
   updateRecipeCount();
   const authBtn = document.getElementById('zen-auth-btn');
   if (authBtn) { authBtn.textContent = 'sign out'; authBtn.onclick = signOut; }
-  showView('landing');
+  showView('home');
 }
 
 async function sendMagicLink() {
@@ -3791,7 +3942,9 @@ document.getElementById('ri-input').addEventListener('keydown', e => {
 function showView(name) {
   document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
   document.getElementById('view-' + name).classList.add('active');
-  if (name === 'planner') {
+  if (name === 'home') {
+    updateHomeView();
+  } else if (name === 'planner') {
     if (!currentPlan) {
       render(); // show empty state while we check Supabase
       loadPlanFromSupabase().then(plan => {
