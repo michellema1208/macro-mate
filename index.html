@@ -1404,23 +1404,26 @@
       <h1 class="home-title">What are we <em>eating</em> this week?</h1>
       <div class="home-week" id="home-week-label"></div>
     </div>
-    <div class="home-targets">
-      <div class="home-target">
-        <div class="v"><span id="home-cal-val">1,500</span><small>cal</small></div>
-        <div class="k">daily target</div>
+    <div style="width:100%;position:relative;">
+      <div class="home-targets">
+        <div class="home-target">
+          <div class="v"><span id="home-cal-val">1,500</span><small>cal</small></div>
+          <div class="k">daily target</div>
+        </div>
+        <div class="home-target">
+          <div class="v"><span id="home-p-val">110</span><small>g</small></div>
+          <div class="k">protein</div>
+        </div>
+        <div class="home-target">
+          <div class="v"><span id="home-c-val">183</span><small>g</small></div>
+          <div class="k">carbs</div>
+        </div>
+        <div class="home-target">
+          <div class="v"><span id="home-f-val">34</span><small>g</small></div>
+          <div class="k">fat</div>
+        </div>
       </div>
-      <div class="home-target">
-        <div class="v"><span id="home-p-val">110</span><small>g</small></div>
-        <div class="k">protein</div>
-      </div>
-      <div class="home-target">
-        <div class="v"><span id="home-c-val">183</span><small>g</small></div>
-        <div class="k">carbs</div>
-      </div>
-      <div class="home-target">
-        <div class="v"><span id="home-f-val">34</span><small>g</small></div>
-        <div class="k">fat</div>
-      </div>
+      <button onclick="openProfileEdit()" style="position:absolute;top:50%;right:14px;transform:translateY(-50%);background:none;border:none;cursor:pointer;font-size:12px;color:var(--zen-ink-3);font-family:var(--zen-sans);letter-spacing:.02em;">✎ edit</button>
     </div>
     <div class="home-cards">
       <div class="home-card" onclick="showView('planner')">
@@ -1434,6 +1437,45 @@
         <h2>My Recipes</h2>
         <p>Browse, add, and manage your personal recipe collection.</p>
         <div class="home-card-arrow">→</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ─── PROFILE EDIT MODAL ─── -->
+<div class="modal-overlay" id="profile-edit-overlay">
+  <div class="recipe-form-modal" style="max-width:460px;">
+    <div class="recipe-form-header">
+      <div class="modal-alts-title">Your Profile</div>
+      <button class="modal-close-btn" onclick="closeProfileEdit()">✕</button>
+    </div>
+    <div class="recipe-form-body">
+      <div class="form-group">
+        <label>Your Name</label>
+        <input type="text" id="pe-name" placeholder="e.g. Michelle">
+      </div>
+      <div style="font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:1px;font-weight:600;padding-top:4px;">Daily Macro Targets</div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Calories</label>
+          <input type="number" id="pe-cal" min="0" step="1">
+        </div>
+        <div class="form-group">
+          <label>Fat g</label>
+          <input type="number" id="pe-f" min="0" step="0.1">
+        </div>
+        <div class="form-group">
+          <label>Carbs g</label>
+          <input type="number" id="pe-c" min="0" step="0.1">
+        </div>
+        <div class="form-group">
+          <label>Protein g</label>
+          <input type="number" id="pe-p" min="0" step="0.1">
+        </div>
+      </div>
+      <div class="form-footer">
+        <button type="button" class="form-cancel-btn" onclick="closeProfileEdit()">Cancel</button>
+        <button type="button" class="generate-btn" onclick="saveProfile()"><span>✦</span> Save</button>
       </div>
     </div>
   </div>
@@ -1964,6 +2006,7 @@ const sb = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY, {
   auth: { flowType: 'implicit' }
 });
 let currentUser = null;
+let currentProfile = { displayName: '' };
 
 async function initAuth() {
   // Listener must be set up BEFORE getSession so magic-link tokens
@@ -1999,9 +2042,41 @@ function goPlan() {
   showView(currentUser ? 'home' : 'auth');
 }
 
+function openProfileEdit() {
+  document.getElementById('pe-name').value = currentProfile.displayName || '';
+  document.getElementById('pe-cal').value = TARGETS.cal;
+  document.getElementById('pe-f').value   = TARGETS.f;
+  document.getElementById('pe-c').value   = TARGETS.c;
+  document.getElementById('pe-p').value   = TARGETS.p;
+  document.getElementById('profile-edit-overlay').classList.add('open');
+}
+
+function closeProfileEdit() {
+  document.getElementById('profile-edit-overlay').classList.remove('open');
+}
+
+async function saveProfile() {
+  currentProfile.displayName = document.getElementById('pe-name').value.trim();
+  TARGETS.cal = parseInt(document.getElementById('pe-cal').value)   || TARGETS.cal;
+  TARGETS.f   = parseFloat(document.getElementById('pe-f').value)   || TARGETS.f;
+  TARGETS.c   = parseFloat(document.getElementById('pe-c').value)   || TARGETS.c;
+  TARGETS.p   = parseFloat(document.getElementById('pe-p').value)   || TARGETS.p;
+  await Promise.all([saveProfileToSupabase(), saveTargetsToSupabase()]);
+  updateTargetsPill();
+  updateHomeView();
+  closeProfileEdit();
+  showToast('Profile saved ✓');
+}
+
+document.getElementById('profile-edit-overlay').addEventListener('click', e => {
+  if (e.target === document.getElementById('profile-edit-overlay')) closeProfileEdit();
+});
+
 function updateHomeView() {
   const h = new Date().getHours();
-  const greeting = h < 12 ? 'good morning' : h < 17 ? 'good afternoon' : 'good evening';
+  const base = h < 12 ? 'good morning' : h < 17 ? 'good afternoon' : 'good evening';
+  const name = currentProfile?.displayName?.trim();
+  const greeting = name ? `${base}, ${name.toLowerCase()}` : base;
   const el = id => document.getElementById(id);
   if (el('home-greeting-text')) el('home-greeting-text').textContent = greeting;
   if (el('home-week-label'))    el('home-week-label').textContent = 'Week of ' + fmtWeekRange(getWeekDates(weekOffset));
@@ -2012,7 +2087,7 @@ function updateHomeView() {
 }
 
 async function onSignedIn() {
-  await Promise.all([loadTargetsFromSupabase(), loadAllRecipesFromSupabase()]);
+  await Promise.all([loadTargetsFromSupabase(), loadAllRecipesFromSupabase(), loadProfileFromSupabase()]);
   updateRecipeCount();
   const authBtn = document.getElementById('zen-auth-btn');
   if (authBtn) { authBtn.textContent = 'sign out'; authBtn.onclick = signOut; }
@@ -2075,6 +2150,28 @@ async function saveTargetsToSupabase() {
     await sb.from('macro_targets').upsert({
       user_id: currentUser.id,
       cal: TARGETS.cal, protein: TARGETS.p, carbs: TARGETS.c, fat: TARGETS.f,
+    }, { onConflict: 'user_id' });
+  } catch(e) {}
+}
+
+async function loadProfileFromSupabase() {
+  if (!currentUser) return;
+  try {
+    const { data } = await sb.from('profiles').select('*').eq('user_id', currentUser.id).maybeSingle();
+    if (data) {
+      currentProfile.displayName = data.display_name || '';
+    } else {
+      await sb.from('profiles').insert({ user_id: currentUser.id, display_name: '' });
+    }
+  } catch(e) {}
+}
+
+async function saveProfileToSupabase() {
+  if (!currentUser) return;
+  try {
+    await sb.from('profiles').upsert({
+      user_id: currentUser.id,
+      display_name: currentProfile.displayName,
     }, { onConflict: 'user_id' });
   } catch(e) {}
 }
