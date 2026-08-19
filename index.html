@@ -43,6 +43,7 @@
     }
 
     html, body { height: 100%; font-family: 'Figtree', sans-serif; background: var(--bg); color: var(--text); }
+    body { opacity: 0; transition: opacity 0.45s ease; }
 
     /* ──────────────────────── VIEW TRANSITIONS ──────────────────────── */
     .view { display: none; }
@@ -3997,6 +3998,13 @@ document.getElementById('rf-servings').addEventListener('input', () => {
 //  INIT
 // ═══════════════════════════════════════════════════════
 weekOffset = 1;
+
+// Reveal page once fonts are ready — prevents FOUT flash on landing page.
+// Falls back to showing after 600ms if fonts stall.
+const revealPage = () => { document.body.style.opacity = '1'; };
+const revealTimeout = setTimeout(revealPage, 600);
+document.fonts.ready.then(() => { clearTimeout(revealTimeout); revealPage(); });
+
 initAuth();
 </script>
 </body>
